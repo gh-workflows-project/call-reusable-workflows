@@ -4,4 +4,4 @@ on:
 jobs:   
   job1:
     name: job1 call a reusable workflow
-    uses: gh-workflows-project/reusable-workflows/.github/workflows/env_vars.yml@main
+    uses: gh-workflows-project/reusable-workflows/.github/workflows/test1/t1.yml@main
