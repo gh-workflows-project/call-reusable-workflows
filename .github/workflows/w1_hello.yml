@@ -1,4 +1,4 @@
-name: demo-hello
+name: w1_hello
 on:
   workflow_dispatch
 jobs:   
