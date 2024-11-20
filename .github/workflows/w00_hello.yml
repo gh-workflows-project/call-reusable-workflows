@@ -1,4 +1,4 @@
-name: w1_hello
+name: w00_hello
 on:
   workflow_dispatch
 jobs:   
