@@ -1,0 +1,8 @@
+name: demo-hello
+on:
+  workflow_dispatch
+jobs:   
+  job1:
+    steps:
+     step1:
+     run: echo 'hello'
