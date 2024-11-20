@@ -1,0 +1,7 @@
+name: w01 Test  call a reusable workflow 
+on:
+  workflow_dispatch
+jobs:   
+  job1:
+    name: j1 call a reusable workflow
+    uses: gh-workflows-project/reusable-workflows/.github/workflows/rw01_hello.yml@main
