@@ -1,4 +1,4 @@
-name: w03_env demo using env context
+name: w03_env_context demo using env context
 on:
   workflow_dispatch
 env:  
