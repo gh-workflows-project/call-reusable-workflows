@@ -37,10 +37,8 @@ jobs:
           # inside a run we can access vars with or without env context
           echo $stepvar $jobvar $globalvar 
           echo ${{ env.stepvar }} ${{ env.jobvar }} ${{ env.globalvar }}  
-          echo $GITHUB_ENV.stepvar $GITHUB_ENV.jobvar $GITHUB_ENV.globalvar 
-          echo $GITHUB_ENV.STEPVAR         
-          echo ${{ github.env.stepvar }} ${{ github.env.jobvar }} ${{ github.env.globalvar }} 
-          echo $GITHUB_ENV_STEPVAR $GITHUB_ENV_stepvar
+          echo $GITHUB_ENV 
+          echo ${{github.env}}
   job2:
     name: j2 show env vars behaviour across jobs
     runs-on: ubuntu-latest
