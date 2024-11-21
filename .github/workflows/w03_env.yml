@@ -1,6 +1,6 @@
 name: w03_env demo using environment variables in a reusable workflow
 on:
-  workflow_call
+  workflow_dispatch
 env:  
   # vars defined here are availble to all jobs, however, value updates will be available only 
   # within the job where they are updated
