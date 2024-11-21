@@ -1,4 +1,4 @@
-name: en_vars demo using environment variables in a reusable workflow
+name: w03_env demo using environment variables in a reusable workflow
 on:
   workflow_call
 env:  
