@@ -23,6 +23,7 @@ jobs:
       # these updates will be available only within the current job as we are saving in GITHUB_ENV
       # do not give any spaces across equal sign below
       # The updated values will be available in the next step, not this step
+      # We have to push the new value into $GITHUB_ENV, otherwise it will not update
         run: |
           echo stepvar=stepvar_new >> $GITHUB_ENV
           echo jobvar=jobvar_new
@@ -35,10 +36,15 @@ jobs:
         run: |
           # inside a run we can access vars with or without env context
           echo $stepvar $jobvar $globalvar 
-          echo ${{ env.stepvar }} ${{ env.jobvar }} ${{ env.globalvar }}   
+          echo ${{ env.stepvar }} ${{ env.jobvar }} ${{ env.globalvar }}  
+          echo $GITHUB_ENV.stepvar $GITHUB_ENV.jobvar $GITHUB_ENV.globalvar 
+          echo $GITHUB_ENV.STEPVAR         
+          echo ${{ github.env.stepvar }} ${{ github.env.jobvar }} ${{ github.env.globalvar }} 
+          echo $GITHUB_ENV_STEPVAR $GITHUB_ENV_stepvar
   job2:
     name: j2 show env vars behaviour across jobs
     runs-on: ubuntu-latest
+    needs: job1
     steps:
       - name: test env variables
         run: |
