@@ -30,9 +30,9 @@ jobs:
         run: |
           echo updstepvar updated value w
           echo $stepvar
-          echo stepvar=stepvar_new >> $GITHUB_ENV
-          echo jobvar=jobvar_new
-          echo globalvar=globalvar_new >> $GITHUB_ENV        
+          stepvar=stepvar_new >> $GITHUB_ENV
+          jobvar=jobvar_new
+          globalvar=globalvar_new >> $GITHUB_ENV        
       - name: test updated env variables 
         if: ${{ env.stepvar == 'stepvar_new' }} # we must accesss env vars using env context when outside a run
        # if: $stepvar == stepvar_new #     this will not work
