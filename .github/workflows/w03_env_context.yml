@@ -27,7 +27,7 @@ jobs:
           echo The updated values will be available in the next step, not this step.
           echo see the updated values are not available in this step:
           echo ${{ env.stepvar1 }} 
-          echo {{ env.stepvar2 }} 
+          echo ${{ env.stepvar2 }} 
           echo ${{ env.jobvar }} 
           echo ${{ env.globalvar }}            
       - name: test updated env variables 
