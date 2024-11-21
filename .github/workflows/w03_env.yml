@@ -34,7 +34,7 @@ jobs:
           jobvar=jobvar_new
           globalvar=globalvar_new >> $GITHUB_ENV        
       - name: test updated env variables 
-        if: ${{ env.stepvar == 'stepvar_new' }} # we must accesss env vars using env context when outside a run
+       # if: ${{ env.stepvar == 'stepvar_new' }} # we must accesss env vars using env context when outside a run
        # if: $stepvar == stepvar_new #     this will not work
        # if: ${{$stepvar == stepvar_new}} #     this will not work either
        # note the jobvar value did not change as we did not push into $GITHUB_env
