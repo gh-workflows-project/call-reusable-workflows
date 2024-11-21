@@ -31,26 +31,24 @@ jobs:
           echo ${{ env.jobvar }} 
           echo ${{ env.globalvar }}            
       - name: test updated env variables 
-       # if: ${{ env.stepvar == 'stepvar_new' }} # we must accesss env vars using env context when outside a run
-       # if: $stepvar == stepvar_new #     this will not work
-       # if: ${{$stepvar == stepvar_new}} #     this will not work either
         run: |
+          echo all updated values are available and stepvar1 is not available here
           echo ${{ env.stepvar1 }} 
-          echo {{ env.stepvar2 }} 
+          echo ${{ env.stepvar2 }} 
           echo ${{ env.jobvar }} 
           echo ${{ env.globalvar }}  
   job2:
     name: j2 show env vars behaviour across jobs
     runs-on: ubuntu-latest
-    # To check if the previous job has any effect on env context, we want job1 to finish before we strt this job
+    # To check if the previous job has any effect on env context, we want job1 to finish before we start this job
     needs: job1
     steps:
       - name: test env variables
         run: |
-          echo stepvar and jobvar are not available acrosss jobs because each job executes with its own env context
+          echo stepvar1, stepvar2, and jobvar are not available acrosss jobs because each job executes with its own env context
           echo global variable is available but the update done in another job will not affect it.
           echo ${{ env.stepvar1 }} 
-          echo {{ env.stepvar2 }} 
+          echo ${{ env.stepvar2 }} 
           echo ${{ env.jobvar }} 
           echo ${{ env.globalvar }} 
       - name: GITHUB_ENV and github.env are the same
