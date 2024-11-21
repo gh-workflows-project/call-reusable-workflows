@@ -1,3 +1,5 @@
+# demo showing how env field works in a workflow
+# env fields can appear at the top level, job, level, or step level
 name: w03_env demo using environment variables in a reusable workflow
 on:
   workflow_dispatch
@@ -16,7 +18,8 @@ jobs:
         env: 
           stepvar: stepvar_value
         run: |
-         # inside a run, access env vars with or without env context
+          echo 'stepvar is available in all steps of this job'
+          echo 'inside a run, access env vars with or without env object prefix:'
           echo $stepvar $jobvar $globalvar 
           echo ${{ env.stepvar }} ${{ env.jobvar }} ${{ env.globalvar }}
       - name: update env variables
@@ -25,6 +28,8 @@ jobs:
       # The updated values will be available in the next step, not this step
       # We have to push the new value into $GITHUB_ENV, otherwise it will not update
         run: |
+          echo updstepvar updated value w
+          echo $stepvar
           echo stepvar=stepvar_new >> $GITHUB_ENV
           echo jobvar=jobvar_new
           echo globalvar=globalvar_new >> $GITHUB_ENV        
