@@ -24,8 +24,8 @@ jobs:
       # do not give any spaces across equal sign below
       # The updated values will be available in the next step, not this step
         run: |
-          echo "stepvar=stepvar_new" >> $GITHUB_ENV
-          echo "globalvar=globalvar_new" >> $GITHUB_ENV          
+          echo $stepvar=stepvar_new
+          echo globalvar=globalvar_new        
       - name: test updated env variables
         if: ${{ env.stepvar == 'stepvar_new' }} # we must accesss env vars using env context when outside a run
        # if: $stepvar == stepvar_new #     this will not work
