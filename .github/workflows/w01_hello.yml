@@ -2,9 +2,9 @@ name: w01 call a reusable workflow
 on:
   workflow_dispatch
 env:
-  test: rw01_hello.yml
+  test: rw01_hello
 
 jobs:   
   job1:
     name: j1 call a reusable workflow
-    uses: gh-workflows-project/reusable-workflows/.github/workflows/${{env.test}}@main
+    uses: gh-workflows-project/reusable-workflows/.github/workflows/${{env.test}}.yml@main
