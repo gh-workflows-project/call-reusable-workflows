@@ -1,4 +1,4 @@
-name: w02 call a composite action
+name: w02_hello call a composite action
 on:
   workflow_dispatch
 jobs:   
@@ -7,4 +7,4 @@ jobs:
     name: j1 call a composite action
     steps:
       - name: call the action
-        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a01_hello@main
+        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a02_hello@main
