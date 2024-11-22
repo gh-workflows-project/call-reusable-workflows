@@ -1,0 +1,27 @@
+name: Test a reusable workflow and an action with inputs and outputs 
+on:
+  workflow_dispatch
+jobs:   
+  job1: 
+    name: j1 call reusable workflow
+    uses: gh-workflows-project/reusable-workflows/.github/workflows/rw04_inputs_outputs.yml@main
+    with:
+     input1: an_input
+  job2:
+    name: j2 use output from j1
+    runs-on: ubuntu-latest
+    needs: job1 # start only if job1 is complete
+    steps:
+      - name: use output from a completed job
+        run: echo ${{ needs.job1.outputs.firstword }} ${{ needs.job1.outputs.secondword }}  
+  job3:
+    name: j4 pass output between steps of a job
+    runs-on: ubuntu-latest
+    steps:
+      - name: create output
+        id: get_output
+        run: echo "output3=myoutput" >> $GITHUB_OUTPUT 
+      - name: use output from previous step
+        run: |
+         echo ${{steps.get_output.outputs.output3}}
+         echo test done
