@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: step1 call action and create output
         id: step1
-        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a05_hello@main
+        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a05_inputs_outputs@main
         with:
           input1: an_input
       - name: use output from previous step
