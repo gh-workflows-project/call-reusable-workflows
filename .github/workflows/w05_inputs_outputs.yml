@@ -13,5 +13,6 @@ jobs:
           input1: an_input
       - name: use output from previous step
         run: |
-         echo ${{steps.step1.outputs.output}}
+         echo ${{steps.step1.outputs.an_output}}
+         echo ${{steps.step1.outputs.another_output}}
          echo workflow done
