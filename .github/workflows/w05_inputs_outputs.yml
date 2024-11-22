@@ -1,0 +1,17 @@
+name: w05_inputs_outputs call a composite action with inputs and outputs 
+on:
+  workflow_dispatch
+jobs:    
+  job1:
+    name: j1 pass output between steps of a job using a composite action
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1 call action and create output
+        id: step1
+        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a05_hello@main
+        with:
+          input1: an_input
+      - name: use output from previous step
+        run: |
+         echo ${{steps.step1.outputs.output}}
+         echo workflow done
