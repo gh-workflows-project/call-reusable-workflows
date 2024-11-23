@@ -5,7 +5,9 @@ jobs:
   job1:
     name: j1 call a reusable workflow
     uses: gh-workflows-project/reusable-workflows/.github/workflows/rw07_scripts.yml@main
-    with: # The script has to be in the caller workflow repo
+    with: # The scripts repo is either the caller workflow repo or the callee workflow repo
+    #  script_repo: caller_repo 
+    #  script repo: called repo
       bash_script: scripts/hello.sh
       py_script: scripts/hello.py
       js_script: scripts/hello.js
