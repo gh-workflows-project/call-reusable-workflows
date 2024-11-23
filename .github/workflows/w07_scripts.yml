@@ -5,8 +5,8 @@ env:
   runjob: true 
 jobs:   
   job1:
-    name: j1 call a reusable workflow
     if: ${{env.runjob}}
+    name: j1 call a reusable workflow
     uses: gh-workflows-project/reusable-workflows/.github/workflows/rw07_scripts.yml@main
     with: # The script has to be in the caller workflow repo
       bash_script: scripts/hello.sh
