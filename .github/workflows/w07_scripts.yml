@@ -1,11 +1,8 @@
 name: w07_scripts demo showing how to run scripts
 on:
   workflow_dispatch
-env:
-  runjob: true 
 jobs:   
   job1:
-    if: ${{env.runjob}}
     name: j1 call a reusable workflow
     uses: gh-workflows-project/reusable-workflows/.github/workflows/rw07_scripts.yml@main
     with: # The script has to be in the caller workflow repo
