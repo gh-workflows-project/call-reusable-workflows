@@ -3,12 +3,19 @@ on:
   workflow_dispatch
 jobs:   
   job1:
-    name: j1 call a reusable workflow
+    name: j1 call a reusable workflow to run the scripts that are in caller/this repo
     uses: gh-workflows-project/reusable-workflows/.github/workflows/rw07_scripts.yml@main
-    with: # The scripts repo is either the caller workflow repo or the callee workflow repo
-    #  script_repo: caller_repo 
-    #  script repo: called repo
+    with: # The scripts repo must be the caller workflow repo, file paths are relative to repo root
       bash_script: scripts/hello.sh
       py_script: scripts/hello.py
       js_script: scripts/hello.js
-      
+  job2:
+    name: j2 call a composite-action to run the scripts that are in the action repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: call the action    
+        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a07_scripts@main
+        with: # The scripts repo must be the composite-action repo, file paths are relative to repo root
+          bash_script: scripts/hello.sh
+          py_script: scripts/hello.py
+          js_script: scripts/hello.js       
