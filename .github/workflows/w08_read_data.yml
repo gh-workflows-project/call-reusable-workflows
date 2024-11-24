@@ -12,7 +12,7 @@ jobs:
         id: read_file      
         uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a08_read_json_data@main
         with:
-         file_path: .github/test-files/f1.json 
+         file_path:  data/w08.json
   job2:
     name: read yaml
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
         id: read_file   
         uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a08_read_yaml_data@main
         with:
-         file_path: .github/test-files/f1.json
+         file_path: data/w08.yml
   job3: 
     name: read output from the above jobs
     runs-on: ubuntu-latest
