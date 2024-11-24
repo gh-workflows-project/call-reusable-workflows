@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: call the action
         id: read_file   
-        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/read_yaml_data@main
+        uses: gh-workflows-project/reusable-workflows/.github/composite-actions/a08_read_yaml_data@main
         with:
          file_path: .github/test-files/f1.json
   job3: 
