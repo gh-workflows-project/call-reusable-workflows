@@ -1,4 +1,4 @@
-name: w08_read_data  use composite-actions to read a json and a yaml file 
+name: w08_read_data  use composite-actions to read a json and a yaml file located in this repo
 on:
   workflow_dispatch
 jobs:   
@@ -47,6 +47,7 @@ jobs:
           myvar=$(echo '${{env.yaml_file_data}}' | jq '.level0.level1.level2.level3.level4')
           echo $myvar
           echo $myvar | jq '.list'
+          echo All done
       
       
   
